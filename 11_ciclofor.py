@@ -17,3 +17,17 @@ for element in dictionary:
     print(dictionary[element])
 for atributo in dictionary:
     print(atributo,'==>',dictionary[atributo])
+for key,value in dictionary.items():
+    print(key,'=>',value)
+people = [
+        {
+            'name': 'Gustavo',
+            'age': 26
+        },
+        {
+            'name': 'Esmeralda',
+            'age': 26
+        }
+        ]
+for person in people:
+    print(person)
