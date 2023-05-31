@@ -2,31 +2,63 @@
 
 import random 
 
+rounds = 1
+computer = 0
+user = 0
 options = ("piedra", "papel", "tijera")
 
-user_option = input("Elige piedra, papel o tijera: ")
-user_option  = user_option.lower()
+while rounds:
+ print('***'*10)
+ print('ROUND ', rounds)
+ print('***'*10)
+ rounds +=1
+ print('MARCADOR: ') 
+ print('Computadora => ',computer)
+ print('Usuario => ',user)
 
-if not user_option in options:
-  print("La opcion no es valida, vuelva a intentarlo")
+ user_option = input("Elige piedra, papel o tijera: ")
+ user_option  = user_option.lower()
 
-computer_option = random.choice(options)
-print("Computer option: ", computer_option)
+ if not user_option in options:
+   print("La opcion no es valida, vuelva a intentarlo")
+   continue
 
-if user_option == computer_option:
-  print("Empate entre el usuario y la computadora")
-elif user_option == "piedra":
-  if computer_option == "tijera":
-    print("El usuario GANO, piedra vence tijera")
-  else: 
-    print("La computadora GANO, papel vence piedra")
-elif user_option == "papel":
-  if computer_option == "piedra":
-    print("El usuario GANO, papel vence piedra")
-  else: 
-    print("La computadora GANO, tijera vence papel")
-elif user_option == "tijera":
-  if computer_option == "papel":
-    print("El usuario GANO, tijera vence papel")
-  else:
-    print("La computadora GANO, piedra vence tijera")
+ computer_option = random.choice(options)
+ print("Computer option: ", computer_option)
+
+ if user_option == computer_option:
+   print("Empate entre el usuario y la computadora")
+ elif user_option == "piedra":
+   if computer_option == "tijera":
+     print("El usuario GANO, piedra vence tijera")
+     user += 1
+   else: 
+     print("La computadora GANO, papel vence piedra")
+     computer += 1
+ elif user_option == "papel":
+   if computer_option == "piedra":
+     print("El usuario GANO, papel vence piedra")
+     user += 1
+   else: 
+     print("La computadora GANO, tijera vence papel")
+     computer += 1
+ elif user_option == "tijera":
+   if computer_option == "papel":
+     print("El usuario GANO, tijera vence papel")
+     user += 1
+   else:
+     print("La computadora GANO, piedra vence tijera")
+     computer += 1
+ if user == 2:
+     print('***'*10)
+     print('GAME OVER')
+     print('EL USUARIO GANO EL JUEGO')
+     print('***'*10)
+     break
+ if computer == 2:
+     print('***'*10)
+     print('GAME OVER')
+     print('LA COMPUTADORA GANO EL JUEGO')
+     print('***'*10)
+     break
+ print(' ')
